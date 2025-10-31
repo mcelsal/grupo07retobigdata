@@ -46,6 +46,38 @@
   <section>
     <h3>Sección #2: Primer servidor web en AWS</h3>
     <p>Explicación del procedimiento seguido en el laboratorio EC2, con capturas.</p>
+    <hr>
+    <h4>Procedimiento paso a paso</h4>
+    <ol>
+      <li><strong>Paso 1: Nombre y etiquetas:</strong><br>
+        Asignamos el nombre <code>Web Server Grupo 7</code> para clasificar el recurso por etiqueta.
+      </li>
+      <li><strong>Paso 2: Imágenes de aplicaciones y sistemas operativos:</strong><br>
+        En la lista <em>Quick Start AMIs</em> dejamos <strong>AMI de Amazon Linux 2023</strong><br>
+        En arquitectura también dejamos la predefinida.
+      </li>
+      <li><strong>Paso 3: Tipo de Instancia:</strong><br>
+        Seleccionamos <strong>t2.micro</strong> (1 vCPU, 1&nbsp;GiB). Se reescala más adelante
+      </li>
+      <li><strong>Paso 4: Par de claves (login):</strong><br>
+        Elegimos <strong>vockey</strong> (requerido por el lab3).
+      </li>
+      <li><strong>Paso 5: Rede y grupo de seguridad:</strong><br>
+        <p>Primero seleccionamos <em>Editar</em>.</p>
+        <p>En VPC elegimos <strong>Lab VPC</strong> que es la que nos indica el Lab 3.</p>
+        <p>Luego en la subred elegimos la <strong>PublicSubnet1</strong> que es en la que se ejecutará la instancia.</p>
+        <p>De manera predeterminada se le asignará una dirección IP pública.</p>
+        <p>En el Firewall vamos a seleccionar un grupo de seguridad existente, pero antes lo vamos a crear.</p>
+        <p>En el menú de la izquierda de EC2, buscamos grupos de seguridad</p>
+
+        Creamos el <strong>Web Server security group</strong> y eliminamos la regla inicial por defecto. Reglas de entrada:
+          <ul class="tick">
+            <li>TCP <strong>22</strong> (SSH) – 0.0.0.0/0</li>
+            <li>TCP <strong>80</strong> (HTTP) – 0.0.0.0/0</li>
+            <li>TCP <strong>443</strong> (HTTPS) – 0.0.0.0/0</li>
+          </ul>
+      </li>
+    </hr>
   </section>
 
   <section>

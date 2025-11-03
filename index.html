@@ -51,6 +51,134 @@
   <section>
     <h3>Sección #3: Balanceo y Autoescalado</h3>
     <p>Configuración de la infraestructura con auto scaling y load balancer.</p>
+    <p>
+      En este paso crearemos una imagen AMI con un servidor web configurado.
+      Primero lanzaremos una instancia EC2 base.
+      Esperaremos hasta que los servidores esten activos y posteriormente crearemos la imagen AMI.
+    </p>
+    <figure>
+      <img src= "img/sec3/estado servidores.png" alt="Instancia EC2" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 0: Instancia EC2</figcaption>
+    
+    </figure>
+    <figure>
+      <img src= "img/sec3/Creacion de imagen.png" alt="Configuracion imagen" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 1: configuracion imagen</figcaption>
+    </figure>
+    <p>
+      Crearemos un grupo objetivo.
+    </p>
+    <figure>
+      <img src= "img/sec3/LabGroup.png" alt="Grupo objetivo" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 2: Grupo objetivo</figcaption>
+    </figure>
+    <figure>
+      <img src= "img/sec3/Registrar destinos.png" alt="Registrar destinos" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 2.1: Registrar destinos</figcaption>
+    </figure>
+    <figure>
+      <img src= "img/sec3/Exito en creacion.png" alt="Confirmacion" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 2.2: Confirmacion</figcaption>
+    <p>
+      Crearemos un balanceador de carga.  
+    </p>
+    <figure>
+      <img src= "img/sec3/balanceador 1.png" alt="Balanceador de carga" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 3: Balanceador de carga</figcaption>
+    </figure>
+    <figure>
+      <img src= "img/sec3/balanceador 2.png" alt="Configuracion balanceador" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 3.1: Configuracion balanceador</figcaption> 
+    </figure>
+    <figure>
+      <img src= "img/sec3/exito balanceador.png" alt="Exito balanceador" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 3.2: Exito balanceador</figcaption>
+    </figure>
+    <p>
+      Crearemos una plantilla de lanzamiento. Configurandolo como en la siguiente imagen.
+    </p>  
+    <figure>
+      <img src= "img/sec3/plantilla lanzamiento1.png" alt="Plantilla de lanzamiento" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 4: Plantilla de lanzamiento</figcaption>
+    </figure>
+    <figure>
+      <img src= "img/sec3/plantilla lanzamiento2.png" alt="Configuracion plantilla" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 4.1: Configuracion plantilla</figcaption> 
+    </figure>
+    <figure>
+      <img src= "img/sec3/plantilla lanzamiento 3.png" alt="Configuracion plantilla" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 4.2: Configuracion plantilla</figcaption>
+    </figure>
+    <figure>
+      <img src= "img/sec3/exito plantilla lanzamiento.png" alt="Exito plantilla" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 4.3: Exito plantilla</figcaption>
+    </figure>
+    <p>
+      Crearemos un grupo de autoescalado. Seguiremos la siguiente configuracion.
+    </p>
+    <figure>
+      <img src= "img/sec3/Grupo autoescalado 1.png" alt="Grupo de autoescalado" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 5: Grupo de autoescalado</figcaption>
+    </figure>
+    <figure>
+      <img src= "img/sec3/Grupo autoescalado 2.png" alt="Configuracion grupo" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 5.1: Configuracion grupo</figcaption>
+    </figure>
+    <figure>
+      <img src= "img/sec3/Grupo autoescalado 3.png" alt="Configuracion grupo" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 5.2: Configuracion grupo</figcaption>
+    </figure>
+    <figure>
+      <img src= "img/sec3/Grupo autoescalado 4.png" alt="Configuracion grupo" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 5.3: Configuracion grupo</figcaption>
+    </figure>
+    <figure>
+      <img src= "img/sec3/Grupo autoescalado 5.png" alt="Configuracion grupo" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 5.4: Configuracion grupo</figcaption>
+    </figure>
+    <figure>
+      <img src= "img/sec3/Grupo autoescalado 6.png" alt="Configuracion grupo" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 5.5: Configuracion grupo</figcaption>
+    </figure>
+    <figure>
+      <img src= "img/sec3/Exito grupo autoescalado.png" alt="Exito grupo" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 5.: Exito grupo</figcaption>
+    </figure>
+    <p>
+      Finalmente, probaremos el balanceador de carga, verificando que este funcionando correctamente.
+    </p>
+    <figure>
+      <img src= "img/sec3/verificar balanceo.png" alt="Prueba balanceador" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 6: Prueba balanceador</figcaption>
+    </figure>
+    <p>
+      Y con esto habremos completado la configuracion del balanceador de carga y el autoescalado.
+      Continuaremos ahora, probando el escalado automatico, para ver que funciona y funcionan tambien las alarmas.
+      Se nos abrira una pagina web y le daremos a Load Test.
+    </p>
+    <figure>
+      <img src= "img/sec3/pagina web.png" alt="Prueba autoescalado" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 7: Prueba autoescalado</figcaption>
+    </figure>
+    <p>
+      Ahora comprobaremos las alarrmas que en caso de fallo se vera asi.
+    </p>
+    <figure>
+      <img src= "img/sec3/Alarmas 1.png" alt="Alarma fallo" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 8: Alarma fallo</figcaption>
+    </figure>
+    <p>
+      Y en caso de exito se vera asi.
+    </p>
+    <figure>
+      <img src= "img/sec3/Alarmas 2.png" alt="Alarma exito" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 9: Alarma exito</figcaption>
+    </figure>
+    <p>
+      Con esto habremos finalizado la configuracion del balanceador de carga y el autoescalado.
+      Ahora ya podremos finalizar el laboratorio.
+    </p>
+
   </section>
 
   <section>

@@ -11,7 +11,7 @@
       padding: 40px;
       background-color: #f5f5dc;
       color: #4b5320;
-      text-align: center; 
+      text-align: center;
     }
 
     .container {
@@ -32,6 +32,48 @@
       font-size: 0.9em;
       color: gray;
     }
+
+    #sec2 h3, #sec2 h4 { 
+      text-align: center; 
+    }
+
+    #sec2 p, 
+    #sec2 li{ 
+      text-align: left; 
+    }
+
+    #sec2 ol {
+      list-style: none;
+      padding-left: 0;
+      margin-left: 0;
+  }
+
+    #sec2 ul {
+      ist-style: disc;
+      padding-left: 40px; 
+      margin-left: 0;
+  }
+
+    #sec2 figure {
+      display: flex;
+      flex-direction: column;   
+      align-items: center;      
+      margin: 1rem 0;           
+  }
+
+    #sec2 img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+  }
+
+    #sec2 figcaption {
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 0.5rem;
+      text-align: center;       
+  }
   </style>
 </head>
 <body style="font-family: Arial; margin: 40px;">
@@ -43,7 +85,7 @@
     <p>Descripción de los principales servicios de AWS y tres adicionales seleccionados por el grupo.</p>
   </section>
 
-  <section>
+  <section id="sec2">
     <h3>Sección #2: Primer servidor web en AWS</h3>
     <p>Explicación del procedimiento seguido en el laboratorio EC2, con capturas.</p>
     <hr>
@@ -51,33 +93,37 @@
     <ol>
       <li><strong>Paso 1: Nombre y etiquetas:</strong><br>
         Lanzamos una instancia y lo primero será asignarle un nombre, <code>Web Server Grupo 7</code>, para clasificar el recurso por etiqueta.
+        <figure>
+          <img src= "img/sec2/paso1-nombre.png" alt="Nombre Instancia" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+          <figcaption>Imagen 1: Nombre instancia</figcaption>
+        </figure>
       </li>
-      <figure>
-        <img src= "img/sec2/paso1-nombre.png" alt="Nombre Instancia" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
-        <figcaption>Imagen 1: Nombre instancia</figcaption>
-      </figure>
-      <li><strong>Paso 2 Imágenes de aplicaciones y sistemas operativos:</strong><br>
+      
+      <li><strong>Paso 2: Imágenes de aplicaciones y sistemas operativos:</strong><br>
         <p>En la lista <em>Quick Start AMIs</em> dejamos <strong>AMI de Amazon Linux 2023</strong><br></p>
         <p>En arquitectura también dejamos la predefinida.</p>
+        <figure>
+          <img src= "img/sec2/paso2-AMI.png" alt="AMI" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+          <figcaption>Imagen 2: AMI</figcaption>
+        </figure>
       </li>
-      <figure>
-        <img src= "img/sec2/paso2-AMI.png" alt="AMI" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
-        <figcaption>Imagen 2: AMI</figcaption>
-      </figure>
+      
       <li><strong>Paso 3: Tipo de Instancia:</strong><br>
-        Seleccionamos <strong>t2.micro</strong> (1 vCPU, 1&nbsp;GiB). Se reescala más adelante
+        <p>Seleccionamos <strong>t2.micro</strong> (1 vCPU, 1&nbsp;GiB). Se reescala más adelante</p>
+        <figure>
+          <img src= "img/sec2/Paso3-Tipo-instancia.png" alt="Tipo de instancia" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+          <figcaption>Imagen 3: Tipo de instancia</figcaption>
+        </figure>
       </li>
-       <figure>
-        <img src= "img/sec2/Paso3-Tipo-instancia.png" alt="Tipo de instancia" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
-        <figcaption>Imagen 3: Tipo de instancia</figcaption>
-      </figure>
+       
       <li><strong>Paso 4: Par de claves (login):</strong><br>
-        Elegimos <strong>vockey</strong> (requerido por el lab3).
+        <p>Elegimos <strong>vockey</strong> (requerido por el lab3).</p>
+        <figure>
+          <img src= "img/sec2/Paso4-Key-pair.png" alt="Key pair" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+          <figcaption>Imagen 4: Par de llaves</figcaption>
+        </figure>
       </li>
-       <figure>
-        <img src= "img/sec2/Paso4-Key-pair.png" alt="Key pair" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
-        <figcaption>Imagen 4: Par de llaves</figcaption>
-      </figure>
+       
       <li><strong>Paso 5: Redes y grupo de seguridad:</strong><br>
         <p>Primero seleccionamos <em>Editar</em>.</p>
         <p>En VPC elegimos <strong>Lab VPC</strong> que es la que nos indica el Lab 3.</p>
@@ -93,28 +139,30 @@
             <li>TCP <strong>80</strong> (HTTP) – 0.0.0.0/0</li>
             <li>TCP <strong>443</strong> (HTTPS) – 0.0.0.0/0</li>
           </ul>
-        <p>Una vez creado, vamos a nuestra instancia, marcamos <strong>Seleccionar un grupo de seguridad existente</strong>, y en el desplegable de abajo elegimos el que hemos creado, en nuestro caso<strong>Web Server</strong></p>
         <p>Y para las reglas de salidad dejamos:<strong>Todo el tráfico</strong>.</p>
+        <p>Una vez creado, vamos a nuestra instancia, marcamos <strong>Seleccionar un grupo de seguridad existente</strong>, y en el desplegable de abajo elegimos el que hemos creado, en nuestro caso <strong>Web Server</strong></p>
+        <figure>
+          <img src= "img/sec2/Paso5-Crear-Grupo-seguridad.png" alt="Crear grupo de seguridad" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+          <figcaption>Imagen 5: Creamos el Grupo de seguridad</figcaption>
+        </figure> 
+        <figure>
+          <img src= "img/sec2/Paso5-Grupos-Seguridad.png" alt="Grupos de seguridad" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+          <figcaption>Imagen 6: Grupos de seguridad</figcaption>
+        </figure>
+        <figure>
+          <img src= "img/sec2/Paso5-Configuracion-red.png" alt="Configuración de red" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+          <figcaption>Imagen 7: Configuración de red</figcaption>
+        </figure>
       </li>
-       <figure>
-        <img src= "img/sec2/Paso5-Crear-Grupo-seguridad.png" alt="Crear grupo de seguridad" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
-        <figcaption>Imagen 5: Creamos el Grupo de seguridad</figcaption>
-      </figure> 
-      <figure>
-        <img src= "img/sec2/Paso5-Grupos-Seguridad.png" alt="Grupos de seguridad" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
-        <figcaption>Imagen 6: Grupos de seguridad</figcaption>
-      </figure>
-       <figure>
-        <img src= "img/sec2/Paso5-Configuracion-red.png" alt="Configuración de red" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
-        <figcaption>Imagen 7: Configuración de red</figcaption>
-      </figure>
+       
       <li><strong>Paso 6: Configuración almacenamiento:</strong><br>
         <p>En este caso lo vamos mantener la configuración predeterminada, como nos indica el workbench.</p>
+        <figure>
+          <img src= "img/sec2/Paso6-config-almacenamiento.png" alt="Configuración de almacenamiento" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+          <figcaption>Imagen 8: Configuración de almacenamiento</figcaption>
+        </figure>
       </li>
-      <figure>
-        <img src= "img/sec2/Paso6-config-almacenamiento.png" alt="Configuración de almacenamiento" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
-        <figcaption>Imagen 8: Configuración de almacenamiento</figcaption>
-      </figure>
+      
       <li><strong>Paso 7: Detalles avanzados:</strong><br>
         <p>Expandimos y vamos a modificar para nuestro ejercicio:</p>
         <p>Habilitamos la pestaña de <strong>Protección de terminación</strong> como nos indica el ejercicio.</p>
@@ -124,31 +172,32 @@
                  systemctl enable httpd
                  systemctl start httpd
                  echo '<html><h1>Hola Mundo somos el Grupo 7!</h1></html>' > /var/www/html/index.html</code></p>
-      </li>
-      <figure>
-        <img src= "img/sec2/Paso7-Proteccion-terminar.png" alt="Habilitamos protección terminar" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
-        <figcaption>Imagen 9: Habilitamos protección terminar</figcaption>
-      </figure>
-      <figure>
-        <img src= "img/sec2/Paso7-Datos-usuario.png" alt="Datos de usuario" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
-        <figcaption>Imagen 10: Datos de usuario</figcaption>
-      </figure>
+        <figure>
+          <img src= "img/sec2/Paso7-Proteccion-terminar.png" alt="Habilitamos protección terminar" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+          <figcaption>Imagen 9: Habilitamos protección terminar</figcaption>
+        </figure>
+        <figure>
+          <img src= "img/sec2/Paso7-Datos-usuario.png" alt="Datos de usuario" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+          <figcaption>Imagen 10: Datos de usuario</figcaption>
+        </figure>
       <li><strong>Paso 8: Lanzar la instancia:</strong><br>
-         <p>Pinchamos sobre <strong>Lanzar instancia</strong> y observamos que el resultado es correcto.</p>
+        <p>Pinchamos sobre <strong>Lanzar instancia</strong> y observamos que el resultado es correcto.</p>
+        <figure>
+          <img src= "img/sec2/Paso8-lanzar-instancia.png" alt="Lanzamos la instancia" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+          <figcaption>Imagen 11: Lanzamos la intancia</figcaption>
+        </figure>
+        <figure>
+          <img src= "img/sec2/Paso9-Lanzamiento.png" alt="Lanzamiento correcto" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+          <figcaption>Imagen 12: Lanzamiento correcto</figcaption>
+        </figure>
+        <figure>
+          <img src= "img/sec2/Paso10-HelloWorld.png" alt="Hello World" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+          <figcaption>Imagen 13: Hello World</figcaption>
+        </figure>
       </li>
-      <figure>
-        <img src= "img/sec2/Paso8-lanzar-intancia.png" alt="Lanzamos la instancia" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
-        <figcaption>Imagen 11: Lanzamos la intancia</figcaption>
-      </figure>
-      <figure>
-        <img src= "img/sec2/Paso9" alt="Lanzamiento correcto" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
-        <figcaption>Imagen 12: Lanzamiento correcto</figcaption>
-      </figure>
-      <figure>
-        <img src= "img/sec2/Paso10-HelloWorld.png" alt="Hello World" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
-        <figcaption>Imagen 7: Hello World</figcaption>
-      </figure>
-    </hr>
+      
+    </ol>
+      
   </section>
 
   <section>

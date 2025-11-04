@@ -41,6 +41,100 @@
   <section>
     <h3>Sección #1: AWS</h3>
     <p>Descripción de los principales servicios de AWS y tres adicionales seleccionados por el grupo.</p>
+    <table border="1" cellpadding="0" cellspacing="8">
+      <thead
+      <tr>
+        <th>Servicio</th>
+        <th>Descripción</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><strong>Amazon EC2 (Elastic Compute Cloud)</strong></td>
+        <td>Servicio básico de la nube AWS. En EC2 se crean las máquinas virtuales en la nube. Permite su creación de forma
+           rápida. Además, si la máquina virtual se queda corta, se puede reescalar añadiendo más potencia fácilmente.</td>
+      </tr>
+      <tr>
+        <td><strong>Amazon S3 (Simple Storage Service)</strong></td>
+        <td>S3 es un servicio de almacenamiento que ofrece seguridad, rendimiento, escalabilidad y disponibilidad de datos. </td>
+      </tr>
+      <tr>
+        <td><strong>EBS</strong></td>
+        <td>EBS proporciona almacenamiento en bloques para instancias EC2, es similar a un disco duro virtual que puedes adjuntar o desmontar según necesites.</td>
+      </tr>
+      <tr>
+        <td><strong>DynamoDB</strong></td>
+        <td>DynamoDB es una BBDD NoSQL, está totalmente gestionada, es rápida y flexible. Es una opción ideal para aplicaciones que necesiten baja latencia y alta disponibilidad.</td>
+      </tr>
+      <tr>
+        <td><strong>Cloudfront</strong></td>
+        <td>Cloudfront es una Red de distribución de contenido (CDN) que entrega datos, vídeos y aplicaciones a los usuarios con baja latencia desde servidores ubicados en todo el mundo.</td>
+      </tr>
+      <tr>
+        <td><strong>Amazon EKS</strong></td>
+        <td>Amazon Elastic Kubernetes Service (Amazon EKS), es un servicio totalmente administrado, que permite ejecutar Kubernetes
+           en la nube de AWS. Automatiza la gestión de la infraestructura de clústeres. Esto es fundamental para programar en contenedores,  ya que ayuda a facilitar la implementación, gestión y escalado de las aplicaciones.</td>
+      </tr>
+      <tr>
+        <td><strong>AWS Lambda</strong></td>
+        <td>Lambda permite ejecutar código sin tener que tener un servidor. Los usuarios solo pagan el tiempo que usan el servicio.
+           Simplemente ejecutas el código y Lambda hace el resto, facilitando así el escalado preciso de software y una amplia disponibilidad.</td>
+      </tr>
+      <tr>
+        <td><strong>Cognito</strong></td>
+        <td>Cognito es un servicio de AWS que se usa para la gestión de usuarios con sus correspondientes roles para tu aplicación.
+            Permite el login y registro también a través de las pasarelas de usuarios de distintas redes sociales como Facebook, Google o Amazon.</td>
+      </tr> 
+      <tr>
+        <td><strong>Firewall de aplicaciones web</strong></td>
+        <td>Servicio de firewall para aplicaciones web que protege los sitios y APIs frente a ataques comunes. Permite crear reglas personalizadas para filtrar tráfico malicioso y mejorar la seguridad son afectar el rendimiento.</td>
+      </tr>
+      <tr>
+        <td><strong>Amazon Chime</strong></td>
+        <td>Servicio de comunicación y videoconferencia en la nube que permite realizar reuniones en línea, chats y compartir contenido de forma segura. Diseñado para empresas que necesitan colaboración en tiempo real.</td> 
+      </tr>
+      <tr>
+        <td><strong>Amazon IAM</strong></td>
+        <td>Servicio que permite gestionar de forma segura el acceso a los recursos de AWS. Con IAM puedes crear usuarios, grupos y roles, definir permisos detallados y aplicar políticas para controlar quién puede hacer qué dentro de tu cuenta.</td>
+      </tr>
+      <tr>
+        <td><strong>Amazon Kinesis</strong></td>
+        <td>Es un servicio que permite recopilar, procesar y analizar datos a tiempo real a gran escala. Permite trabajar con fluidos continuos de datos para obtener información inmediata sin necesidad de esperar a que se almacene.</td>
+      </tr>
+      <tr>
+        <td><strong>Amazon Lightsail</strong></td>
+        <td>Es un servicio simplificado, que permite crear servidores virtuales con precios fijos y configuración sencilla. Está pensado para usuarios que quieren desplegar rápidamente aplicaciones web, blogs o sitios pequeños.</td>
+      </tr>
+      </tbody>
+      </table>
+
+      <figure>
+        <img src= "img/sec1/Esquema AWS.png" alt="Esquema AWS" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px; margin-top:20px;">
+        <figcaption>Esquema AWS con preguntas</figcaption>
+      </figure>
+
+      <h3>Preguntas:</h3>
+      <ul style="text-align:justify; max-width:600px; margin: 20px auto;">
+        <li><strong>¿Están todos los servicios correctamente ubicados?</strong><br>
+          El Audit account no tiene VPC, solo servicios globales. La VPC existe dentro del Environment Account tal y como está en el resto del diagrama.
+           Así que se debería quitar VPC de la Audit Account.
+        </li>
+        <li><strong>¿Por qué no se usa EC2 y se usa ECS? ¿Diferencias?</strong><br>
+          En este caso no se usa EC2 porque ECS (Elastic Container Service) es más moderna y flexible y permite una gestión más eficiente.
+          EC2 crea máquinas virtuales completas mientras que ECS trabaja con contenedores, estos consumen menos recursos y se pueden actualizar con más facilidad.
+          ECS también facilita la tarea de desplegar aplicaciones, ya que permite automatizar el proceso y no tener que estar pendiente de los servidores de forma manual. Tampoco de las actualizaciones, configuraciones o mantenimiento del sistema,
+           porque AWS se encarga de esta parte. Sin embargo, con EC2, tendríamos que ser nosotros los encargados de crear, configurar y mantener las máquinas virtuales, incluyendo el sistema operativo y todo lo que conlleva su gestión.
+        </li>
+        <li><strong>¿Cuántas redes privadas hay?</strong><br>
+          En el esquema se pueden distinguir 2 redes privadas, una por cada zona de disponibilidad (Availability Zone A y Availability Zone B). En cada una se encuentran sus propios recursos como las instancias ECS y las bases de datos RDS,
+           que no están expuestas directamente a Internet. De esta manera mejoran la seguridad y la disponibilidad.
+        </li>
+        <li><strong>¿En cuantos CPDs se ubica el servicio?</strong><br>
+          El servicio está distribuído en 2 CPDs (centros de datos), Availability Zone A y Availability Zone B. Esta distribución permite que si un CPD tiene un fallo, el otro pueda seguir funcionando (alta disponibilidad y tolerancia a fallos).
+        </li>
+      </ul>
+
+
   </section>
 
   <section>

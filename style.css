@@ -31,3 +31,7 @@ ul, ol {
   max-width: 600px;
   margin: 20px auto;
 }
+
+ol {
+  list-style-type: none;
+}

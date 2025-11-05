@@ -18,6 +18,8 @@ body {
 
 section {
   margin-bottom: 30px;
+  max-width: 600px;
+  margin: auto;
 }
 
 footer {

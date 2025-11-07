@@ -355,7 +355,65 @@
     <p>Laboratorio elegido por el grupo, para ampliar informacion sobre el almacenamiento de instancias EC2</p>
     <p>EBS proporciona almacenamiento en bloques para instancias EC2, es similar a un disco duro virtual que puedes adjuntar o desmontar según necesites.
    </p>
-   
+   <p>Crearemos un volumen EBS para adjuntarle una instancia EC2</p>
+   <figure>
+      <img src= "img/sec4/Creacion de volumen.png" alt="Crear volumen EBS" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 1: Crear volumen EBS</figcaption>
+    </figure>
+    <figure>
+      <img src= "img/sec4/My volumen.png" alt="Verificacion de creacion" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 1.1: Verificacion de creacion</figcaption>
+    <p>Una vez creado el volumen, lo adjuntaremos a una instancia EC2 existente.</p>
+    <figure>
+      <img src= "img/sec4/Asociar volumen.png" alt="Adjuntar volumen EBS" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 2: Adjuntar volumen EBS</figcaption>
+    </figure>
+    <p>Conectaremos a la instancia de Amazon EC2 con lab</p>
+    <figure>
+      <img src= "img/sec4/Conectar.png" alt="Conectar a instancia EC2" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 3: Conectar a instancia EC2</figcaption>
+    </figure>
+    <p>Crearemos y configuraremos el sistema de archivos. Crearemos un sistema de archivos ext3 en el volumen nuevo, un directorio para montar el volumen, un archivo
+      dentro de este y comprovaremos que esta todo correcto</p>
+    <figure>
+      <img src= "img/sec4/Crear y configurar sistema de archivos.png" alt="Crear y configurar sistema de archivos" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 4: Crear y configurar sistema de archivos</figcaption>
+    </figure>
+    <p>A continuacion, crearemos una instantania de Amazon EBS.</p>
+    <p>Seleccionaremos MyVolume y crearemos una intantanea.</p>
+    <figure>
+      <img src= "img/sec4/Crear instantanea.png" alt="Crear instantanea EBS" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 5: Crear instantanea EBS</figcaption>
+    </figure>
+    <figure>
+      <img src= "img/sec4/Verificacion instantanea.png" alt="Verificacion de instantanea" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 5.1: Verificacion de instantanea</figcaption>
+    </figure>
+    <p>Eliminaremos el archivo .txt que habiamos creado anteriormente y pasaremos al siguiente paso.</p>
+    <figure>
+      <img src= "img/sec4/eliminacion y verificado.png" alt="Eliminar archivo txt" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 6: Eliminar archivo txt</figcaption>
+    </figure>
+    <p>Crearemos un volumen a partir de My Snapshot.</p>
+    <figure>
+      <img src= "img/sec4/Restored volume.png" alt="Crear volumen desde instantanea" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 7: Crear volumen desde instantanea</figcaption>
+    </figure>
+    <figure>
+      <img src= "img/sec4/verificacion restored.png" alt="Verificacion volumen restaurado" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 7.1: Verificacion volumen restaurado</figcaption>
+    </figure>
+    <p>Adjuntaremos el volumen restaurado a la instancia EC2.</p>
+    <figure>
+      <img src= "img/sec4/Asociar volumen.png" alt="Asociar volumen restaurado" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 8: Asociar volumen restaurado</figcaption>
+    </figure>
+    <p>Montamos el volumen y verificamos la recuperacion del .txt</p>
+    <figure>
+      <img src= "img/sec4/Montar volumen y verificacion.png" alt="Montar volumen y verificar archivo" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figcaption>Figura 9: Montar volumen y verificar archivo</figcaption>
+    </figure>
+    <p>Con esto habremos finalizado el laboratorio de EBS y EC2.</p>
   </section>
 
   <footer style="margin-top:40px; text-align:center; font-size:0.9em; color:gray;">
